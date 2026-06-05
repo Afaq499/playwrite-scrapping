@@ -1,0 +1,10 @@
+node_modules/
+dist/
+dist/frontend/
+output/
+.browser-data/
+cookies.json
+.env
+*.log
+playwright-report/
+test-results/

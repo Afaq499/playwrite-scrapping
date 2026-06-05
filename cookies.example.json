@@ -1,0 +1,15 @@
+[
+  {
+    "domain": "www.vrbo.com",
+    "expirationDate": 1783241248,
+    "hostOnly": true,
+    "httpOnly": false,
+    "name": "example-cookie",
+    "path": "/",
+    "sameSite": null,
+    "secure": false,
+    "session": false,
+    "storeId": null,
+    "value": "paste-your-cookie-value-here"
+  }
+]

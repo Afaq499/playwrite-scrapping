@@ -1,0 +1,34 @@
+{
+  "name": "vrbo-booking-scraper",
+  "version": "1.0.0",
+  "description": "Scrape VRBO host calendar bookings using Playwright",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n server,web -c blue,green \"npm run server\" \"npm run frontend\"",
+    "server": "tsx server/index.ts",
+    "frontend": "vite",
+    "scrape": "tsx src/index.ts",
+    "scrape:headed": "HEADED=true tsx src/index.ts",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^5.1.0",
+    "playwright": "^1.52.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.18",
+    "@types/express": "^5.0.2",
+    "@types/node": "^22.15.0",
+    "@types/react": "^19.1.2",
+    "@types/react-dom": "^19.1.2",
+    "@vitejs/plugin-react": "^4.4.1",
+    "concurrently": "^9.1.2",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vite": "^6.3.5"
+  }
+}
