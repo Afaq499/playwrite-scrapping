@@ -165,7 +165,12 @@ export class VrboBookingScraper {
         label: `${property.title} (${label})`,
       });
 
-      await page.goto(url, { waitUntil: "domcontentloaded", timeout: 45_000 });
+      await page.goto(url, { waitUntil: "commit", timeout: 30_000 });
+      await page
+        .getByText(/bookings and blocks/i)
+        .first()
+        .waitFor({ state: "visible", timeout: 10_000 })
+        .catch(() => undefined);
       await dismissCalendarModals(page, (message) => this.log(message));
 
       const monthBookings = await parseBookingsFromDrawer(page, selectionStart, selectionEnd);
