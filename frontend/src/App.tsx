@@ -37,6 +37,8 @@ export default function App() {
     [results]
   );
 
+  const daysScanned = results[0]?.dateRange?.days ?? 60;
+
   const connectEvents = useCallback(() => {
     eventSourceRef.current?.close();
     const source = new EventSource(`${API_BASE}/api/scrape/events`);
@@ -287,7 +289,7 @@ export default function App() {
               <span className="stat-label">Bookings</span>
             </div>
             <div className="stat-card">
-              <span className="stat-value">300</span>
+              <span className="stat-value">{daysScanned}</span>
               <span className="stat-label">Days scanned</span>
             </div>
           </div>
@@ -319,7 +321,7 @@ export default function App() {
                 </header>
 
                 {result.bookings.length === 0 ? (
-                  <p className="empty-state">No bookings found in the next 300 days.</p>
+                  <p className="empty-state">No bookings found in the next {daysScanned} days.</p>
                 ) : (
                   <div className="table-wrap">
                     <table>

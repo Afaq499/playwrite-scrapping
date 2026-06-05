@@ -1,6 +1,6 @@
 export const VRBO_BASE = "https://www.vrbo.com";
 export const PROPERTIES_URL = `${VRBO_BASE}/en-gb/p/properties`;
-export const DAYS_TO_SCAN = Number(process.env.DAYS_TO_SCAN ?? 300);
+export const DAYS_TO_SCAN = Number(process.env.DAYS_TO_SCAN ?? 60);
 
 export function formatDate(date: Date): string {
   const year = date.getFullYear();

@@ -49,3 +49,24 @@ export function parseVrboDateRange(
     checkOutDate: formatDate(checkOut),
   };
 }
+
+export function countNights(checkInDate: string, checkOutDate: string): number {
+  const start = new Date(`${checkInDate}T12:00:00`);
+  const end = new Date(`${checkOutDate}T12:00:00`);
+  const diff = (end.getTime() - start.getTime()) / 86_400_000;
+  return Math.max(0, Math.round(diff));
+}
+
+export function formatNightsLabel(nights: number): string {
+  return nights === 1 ? "1 Night" : `${nights} Nights`;
+}
+
+export function formatDisplayDate(isoDate: string): string {
+  const date = new Date(`${isoDate}T12:00:00`);
+  return date.toLocaleDateString("en-GB", {
+    weekday: "short",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
